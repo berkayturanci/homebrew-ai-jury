@@ -3,8 +3,8 @@ class AiJury < Formula
 
   desc "Cross-vendor multi-agent PR & code review jury"
   homepage "https://ai-jury.dev/"
-  url "https://files.pythonhosted.org/packages/42/1d/a0cae0c4ed2c1ae093b6ba86dcd3c7b519046dc4d9f8865ca530d33b8c90/ai_jury-1.18.1.tar.gz"
-  sha256 "51dd72d5d2971ac06b5d1e77b7da03cb7f5ca16e24de41a59a9ba497c6b96e09"
+  url "https://files.pythonhosted.org/packages/ef/d6/4035fbe0be45087f0c88640ac20df727d5515ed90d403dbe6efb6a894aeb/ai_jury-1.19.0.tar.gz"
+  sha256 "b99fa07b97bfd17b3fe50120a219d5df86587ef1b60853a022878393537821fd"
   license "MIT"
 
   depends_on "python@3.13"
@@ -14,7 +14,11 @@ class AiJury < Formula
   end
 
   test do
-    assert_match "jury 1.18.1", shell_output("#{bin}/jury --version")
-    assert_match "error: provide one of", shell_output("#{bin}/jury --mock 2>&1", 1)
+    assert_match "jury 1.19.0", shell_output("#{bin}/jury --version")
+    # Bare `--mock` reviews the diff bundled with the package (#841): the whole
+    # offline pipeline, with no network and no key.
+    assert_match "bundled offline-demo diff", shell_output("#{bin}/jury --mock 2>&1")
+    # A real run with no diff source still refuses, with the documented message.
+    assert_match "error: provide one of", shell_output("#{bin}/jury 2>&1", 1)
   end
 end

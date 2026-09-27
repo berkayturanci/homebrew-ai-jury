@@ -8,7 +8,7 @@ brew install berkayturanci/ai-jury/ai-jury
 
 ## This formula is generated, not edited here
 
-`Formula/ai-jury.rb` is published from the [ai-jury repository](https://github.com/berkayturanci/ai-jury/blob/main/Formula/ai-jury.rb) on every release. Edit it there.
+`Formula/ai-jury.rb` is published from the [ai-jury repository](https://github.com/berkayturanci/ai-jury) on every release: each release renders [`packaging/homebrew/ai-jury.rb.template`](https://github.com/berkayturanci/ai-jury/blob/main/packaging/homebrew/ai-jury.rb.template) and attaches the result as the [`ai-jury.rb` release asset](https://github.com/berkayturanci/ai-jury/releases/latest/download/ai-jury.rb). Edit the template there.
 
 The source repo is where the checks live: the url and `sha256` are compared against what PyPI actually publishes for the tagged version, on every push. Editing the copy here by hand would pass nothing and drift silently — which is the failure that produced this tap in the first place (ai-jury#562: the command above was documented in six places while the tap did not exist and the formula's url returned 404).
 

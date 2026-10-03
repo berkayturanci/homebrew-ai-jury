@@ -3,8 +3,8 @@ class AiJury < Formula
 
   desc "Cross-vendor multi-agent PR & code review jury"
   homepage "https://ai-jury.dev/"
-  url "https://files.pythonhosted.org/packages/67/e2/5f50762f080511a02c5d0e1d829c0d762c2e496493186b8e9ee58d6bfa79/ai_jury-1.23.0.tar.gz"
-  sha256 "1e0818f5cf7d0a7566afb8b2c704855ee79353caa409ffd520de5f6084f5662f"
+  url "https://files.pythonhosted.org/packages/fa/48/fd16c4c63a2ae39882f5d68b2f9ce92785803d058b3ebbada40f6a94eeea/ai_jury-1.24.0.tar.gz"
+  sha256 "d6c5ff965a7610614cb4a2fb10563c1937cf21aaeecbe41c9e94da30119b3d1e"
   license "MIT"
 
   depends_on "python@3.13"
@@ -14,7 +14,7 @@ class AiJury < Formula
   end
 
   test do
-    assert_match "jury 1.23.0", shell_output("#{bin}/jury --version")
+    assert_match "jury 1.24.0", shell_output("#{bin}/jury --version")
     # Bare `--mock` reviews the diff bundled with the package (#841): the whole
     # offline pipeline, with no network and no key.
     assert_match "bundled offline-demo diff", shell_output("#{bin}/jury --mock 2>&1")
